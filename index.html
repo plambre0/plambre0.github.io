@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
+            --accent: #000000;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            margin-left: 2rem;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a.active {
+            border-bottom: 1px solid var(--accent);
+        }
+
+        header {
+            padding: 0 4rem;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .hero-text {
+            font-size: 5vw;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin: .9rem 0;
+            line-height: 0.6;
+            letter-spacing: -2px;
+        }
+
+        .main-container {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 4rem;
+            padding: 2rem 4rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .sidebar-tabs {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tab-item {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .tab-item:hover, .tab-item.active {
+            color: var(--text-primary);
+        }
+
+        .tab-item.active {
+            border-left: 2px solid var(--accent);
+            padding-left: 1rem;
+            margin-left: -1.1rem;
+        }
+
+        .content-section {
+            display: none;
+            max-width: 800px;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin-bottom: 2rem;
+        }
+
+        .project-item {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-meta {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-container { grid-template-columns: 1fr; }
+            nav { padding: 1rem 2rem; }
+            header { padding: 0 2rem; }
+        }
+
+        .about-wrapper {
+            display: flex;
+            justify-content: space-between; /* Pushes content to opposite ends */
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .about-text {
+            max-width: 550px; /* Limits text width so it doesn't stretch too far */
+        }
+
+        .about-image {
+            flex: 0 0 350px; /* Sets a fixed width for the image */
+            margin-left: 100px; /* Ensures it stays anchored to the right */
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            display: block;
+        }
+
+        /* Makes it stack vertically on mobile phones */
+        @media (max-width: 768px) {
+            .about-wrapper {
+                flex-direction: column;
+            }
+            .about-image {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="hero-text">Paolo Lambre</h1>
+        <div class="site-title">Statistical Analyst</div>
+    </header>
+
+    <div class="main-container">
+        <ul class="sidebar-tabs">
+            <li class="tab-item active" onclick="showTab('about')">About Me</li>
+            <li class="tab-item" onclick="showTab('projects')">Projects</li>
+            <li class="tab-item" onclick="showTab('contact')">Contact</li>
+        </ul>
+
+        <main>
+            <section id="projects" class="content-section">
+                <h2>Recent Projects</h2>
+                <div class="project-item">
+                    <div class="project-meta">2026</div>
+                    <h3><a href="https://github.com/plambre0/MAT398_CAPSTONE_PROJECT">Estimating Effect of Violent Crime Rates on PTSD Prevalence in Chicago</a></h3>
+                    <p>Used neighborhood level Mental Health America survey data and Chicago socioeconomic statistics to estimate the total effects of violent crime rate on PTSD prevalence controlling for confounding factors using spatial statistics, GLM, SEM, and Bayesian methods.</p>
+                </div>
+                <div class="project-item">
+                    <div class="project-meta">2025</div>
+                    <h3><a href="https://github.com/plambre0/Causal_Lead_Renal_Analysis">An Evaluation of the Effectiveness of Lead Exposure Regulations on Kidney Health</a></h3>
+                    <p>Used NHANES data to evaluate the effectiveness of lead exposure regulations. Built mediation models to test the hypothesis that these policies reduced blood lead levels and prevelance of kidney damage in the US poplation adjusting for confounders and survey design effects.</p>
+                </div>
+                <div class="project-item">
+                    <div class="project-meta">2025-2026</div>
+                    <h3><a href="https://github.com/plambre0/shellFisk">shellFisk: A High-Performance Statistical Computing Environment</a></h3>
+                    <p>Designed a high-performance statistical programming language and analysis environment in C++ supporting GLM, PCA, Nonparametric Tests (ANOVA, Wilcoxon, Kruskal-Wallis), Kaplan-Meier Survival Analysis, and data wrangling. Supports undo-redo functionality with an input stack, outputting sessions, CSV formatted datasets, and JSON format model outputs. Methods using linear algebra were implemented using the Eigen library.</p>
+                </div>
+            </section>
+            
+            <section id="about" class="content-section active">
+                <div class="about-wrapper">
+                    <div class="about-text">
+                        <h2>About Me</h2>
+                        <p>I am a statistical analyst who thrives on leveraging information to drive complex problem solving and decision-making. Through my work in statistical computing, epidemiology, and computational biology, I have developed a diverse skill set in statistical inference, modeling, risk analysis, large scale data processing, visualization, and communication skills.</p>
+                        <p>This June, I will receive my BS in Mathematics and Computer Science from DePaul University where I minored in Data Science and concentrated my studies on statistical methods and data analysis including graduate coursework in Stochastic Processes, Advanced Statistical Computing, and Time Series Analysis.<p>
+                        <p>I am an alumni of DePaul's Combined and Computational Bioinformatics Lab. During my time there, I co-authored a research paper that is currently under ICBCB's peer review process where we developed machine learning methods to analyze gene expression patterns in neural spatial transcriptomics data. During my studies at DePaul, I also gained experience at Indiana University Bloomington's Khomtchouk Lab where I designed and implemented statistical studies focusing on the causes and progression of cardiometabolic diseases.</p>
+                        <p>My professional interests include actuarial science, economics, and public health. My academic interests include causal inference, bayesian statistics, and the development of interpretable statistical and machine learning models to drive informed decision-making regarding complex systems.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="Portrait.png" alt="Portrait of Paolo Lambre" style="height: 100%; width: 100%;">
+                        <p class="center-text">Me and My Dog</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="content-section">
+                <div class="contact-info">
+                    <h2>Contact Me</h2>
+                    <p>Email: paololambre0@gmail.com</p>
+                    <p>LinkedIn: <a href="https://linkedin.com/in/plambre" target="_blank">linkedin.com/in/plambre</a></p>
+                    <p>GitHub: <a href="https://github.com/plambre0" target="_blank">github.com/plambre0</a></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+
+        }
+    </script>
+</body>
+</html>
